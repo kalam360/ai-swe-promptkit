@@ -25,6 +25,7 @@ Generate markdown documents for different task aspects:
 - **Status:** [Not Started/In Progress/Review/Done]
 - **Estimated Time:** [Time estimate]
 - **Dependencies:** [List of dependent tasks]
+- **Assigned To:** [Developer/Team responsible]
 
 **Description:**
 [Detailed description of what needs to be done]
@@ -52,6 +53,10 @@ Generate markdown documents for different task aspects:
 - [Related documentation]
 - [Reference implementations]
 - [External resources]
+
+**AI Agent Considerations:**
+- [How the AI agent can assist with this task (code generation, test creation, etc.)]
+- [Specific instructions for the AI agent]
 ```
 
 ### Current Sprint (current_sprint.md)
@@ -69,7 +74,7 @@ Generate markdown documents for different task aspects:
 1. [Task ID] - [Task Name]
    - **Owner:** [Assigned developer]
    - **Status:** [Current status]
-   - **Blockers:** [Any blocking issues]
+   - **Blockers:** [Any blocking issues - Detailed description]
    - **Progress:** [% complete]
    - **Notes:** [Important updates]
 
@@ -82,7 +87,7 @@ Generate markdown documents for different task aspects:
 ## Completed Tasks
 1. [Task ID] - [Task Name]
    - **Completed:** [Date]
-   - **Review Status:** [Reviewed/Pending Review]
+   - **Review Status:** [Reviewed/Pending Review/Changes Requested]
    - **Notes:** [Any important notes]
 
 ## Sprint Metrics
@@ -102,6 +107,7 @@ Generate markdown documents for different task aspects:
 - **Name:** [Task Name]
 - **Status:** [In Progress]
 - **Started:** [Start Date/Time]
+- **Assigned To:** [Developer/Team responsible]
 
 ## Context
 ### User Story
@@ -134,6 +140,10 @@ Generate markdown documents for different task aspects:
 ## Progress Updates
 - [Timestamp] [Update note]
 - [Timestamp] [Update note]
+
+## Blockers
+- [ ] [Blocker 1 Description] - [Resolution Plan/Status]
+- [ ] [Blocker 2 Description] - [Resolution Plan/Status]
 
 ## Review Checklist
 - [ ] Code follows SOLID principles
@@ -175,49 +185,51 @@ Generate markdown documents for different task aspects:
 
 ## Task Management Guidelines
 
-1. Task Creation
-   - Clear, specific descriptions
-   - Full context inclusion
-   - Well-defined acceptance criteria
-   - Explicit dependencies
+1.  Task Creation
+    *   Clear, specific descriptions.
+    *   Full context inclusion (user story, technical requirements).
+    *   Well-defined acceptance criteria.
+    *   Explicit dependencies.
+    *   **Assigned To field for accountability.**
 
-2. Sprint Planning
-   - Balanced workload
-   - Clear priorities
-   - Manageable scope
-   - Team capacity consideration
+2.  Sprint Planning
+    *   Balanced workload.
+    *   Clear priorities.
+    *   Manageable scope.
+    *   Team capacity consideration.
+    *   **Blocker resolution planning.**
 
-3. Current Task Management
-   - Complete context provision
-   - Progress tracking
-   - Blocker identification
-   - Regular updates
+3.  Current Task Management
+    *   Complete context provision.
+    *   Progress tracking (% complete).
+    *   **Detailed blocker identification and resolution tracking.**
+    *   Regular updates.
 
-4. Issue Handling
-   - Clear impact assessment
-   - Priority assignment
-   - Resolution planning
-   - Task linkage
+4.  Issue Handling
+    *   Clear impact assessment.
+    *   Priority assignment.
+    *   Resolution planning.
+    *   Task linkage.
 
 ## Task Workflow
 
-1. Sprint Planning:
-   - Review available tasks
-   - Consider team capacity
-   - Set sprint goals
-   - Prioritize critical issues
+1.  Sprint Planning:
+    *   Review available tasks.
+    *   Consider team capacity.
+    *   Set sprint goals.
+    *   Prioritize critical issues and blockers.
 
-2. Task Selection:
-   - Check current task completion
-   - Review sprint progress
-   - Consider dependencies
-   - Handle critical issues
+2.  Task Selection:
+    *   Check current task completion.
+    *   Review sprint progress.
+    *   Consider dependencies.
+    *   Handle critical issues and blockers.
 
-3. Task Updates:
-   - Track progress
-   - Update status
-   - Document blockers
-   - Plan next tasks
+3.  Task Updates:
+    *   Track progress (% complete).
+    *   Update status.
+    *   Document blockers with details and resolution plans.
+    *   Plan next tasks.
 
 ## Validation Checklist
 
@@ -228,6 +240,8 @@ Generate markdown documents for different task aspects:
 - [ ] Technical requirements included
 - [ ] Progress tracking enabled
 - [ ] Sprint metrics maintained
+- [ ] AI Agent Considerations included
+- [ ] Assigned To field is populated
 
 Remember to:
 - Keep tasks focused and manageable

@@ -21,6 +21,8 @@ As a [type of user],
 I want to [perform some action],
 So that [achieve some goal/value].
 
+**Priority:** [High/Medium/Low/MVP/Future]
+
 **Acceptance Criteria:**
 1. [Criterion 1]
 2. [Criterion 2]
@@ -33,30 +35,32 @@ So that [achieve some goal/value].
 **Notes:**
 - [Additional context/constraints]
 - [Technical considerations]
+- [AI Agent Considerations: How this story can be used for code/test generation]
 ```
 
 ## Guidelines
 
-1. Story Writing
-   - Use clear, concise language
-   - Follow "As a... I want... So that..." format
-   - Include specific acceptance criteria
-   - Note dependencies and constraints
-   - Add relevant technical notes
+1.  Story Writing
+    *   Use clear, concise language.
+    *   Follow the "As a... I want... So that..." format.
+    *   Include specific acceptance criteria.
+    *   Note dependencies and constraints.
+    *   Add relevant technical notes.
+    *   **Explicitly state the priority of the user story.**
 
-2. Story Organization
-   - Group by epics/features
-   - Maintain logical flow
-   - Show relationships between stories
-   - Prioritize by business value
+2.  Story Organization
+    *   Group by epics/features.
+    *   Maintain a logical flow.
+    *   Show relationships between stories.
+    *   Prioritize by business value and alignment with the iterative development plan (MVP, future enhancements).
 
-3. INVEST Principles
-   - Independent: Minimize dependencies
-   - Negotiable: Allow for discussion
-   - Valuable: Clear business value
-   - Estimable: Enough detail to size
-   - Small: Completable in one sprint
-   - Testable: Clear acceptance criteria
+3.  **INVEST Principles (Reinforced):**
+    *   **Independent:** User stories should be as independent as possible, minimizing dependencies on other stories.
+    *   **Negotiable:** User stories are not contracts; they are invitations to a conversation. Details can be negotiated.
+    *   **Valuable:** Each user story must deliver value to the end-user or the business.
+    *   **Estimable:** Developers should be able to estimate the effort required to implement the story.
+    *   **Small:** User stories should be small enough to be completed within a single sprint.
+    *   **Testable:** Each user story must have clear acceptance criteria that can be used to test the implementation.
 
 ## Example Output
 
@@ -70,6 +74,8 @@ So that [achieve some goal/value].
 As a new user,
 I want to create an account,
 So that I can access the system's features.
+
+**Priority:** High
 
 **Acceptance Criteria:**
 1. User can enter email and password
@@ -86,6 +92,7 @@ So that I can access the system's features.
 - Consider GDPR compliance
 - Implement rate limiting
 - Use secure password hashing
+- AI Agent Considerations: This story can be used to generate code for user registration, input validation, email sending, and database interaction.  Tests should cover successful registration, invalid email formats, weak passwords, and email confirmation.
 
 [Continue with other stories...]
 ```
@@ -99,9 +106,10 @@ So that I can access the system's features.
 - [ ] Technical notes provided where needed
 - [ ] Stories properly grouped
 - [ ] Priority/value indicated
+- [ ] AI Agent Considerations included
 
 Remember to:
-- Maintain traceability to project objectives
-- Consider technical feasibility
-- Include non-functional requirements
-- Update related blueprint documents
+- Maintain traceability to project objectives and the iterative development plan.
+- Consider technical feasibility.
+- Include non-functional requirements.
+- Update related blueprint documents.

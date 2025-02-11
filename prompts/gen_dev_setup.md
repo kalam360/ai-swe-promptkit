@@ -25,6 +25,15 @@ Generate markdown documents and automation scripts:
 - Backend: uv (for fast Python package management)
 - System: brew/apt (for system dependencies)
 
+## Environment Variables
+- List required environment variables and their purpose.
+- Provide instructions on how to set them (e.g., using .env files, shell commands).
+- Example:
+    ```
+    DATABASE_URL=postgres://user:password@host:port/database
+    API_KEY=your_secret_api_key
+    ```
+
 ## Environment Setup
 1. Install Prerequisites
    ```bash
@@ -62,6 +71,14 @@ Generate markdown documents and automation scripts:
 - Testing
 - Building
 - Debugging
+
+## Troubleshooting
+- Common issues and solutions
+- Links to relevant documentation or resources
+
+## AI Agent Considerations
+ - [How the AI agent can assist with setting up the development environment]
+ - [Specific commands or scripts that can be automated]
 ```
 
 ### Makefile
@@ -104,6 +121,9 @@ services:
       - ./frontend:/app
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      # Add other environment variables as needed
 
   backend:
     build:
@@ -113,6 +133,9 @@ services:
       - ./backend:/app
     ports:
       - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Add other environment variables as needed
 
   database:
     image: [database-image]
@@ -120,6 +143,10 @@ services:
       - db-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      # Add other environment variables as needed
 
 volumes:
   db-data:
@@ -127,29 +154,29 @@ volumes:
 
 ## Guidelines
 
-1. Development Mode Selection
-   - Consider user's preference (local/docker)
-   - Provide mode-specific instructions
-   - Include fallback options
-   - Document trade-offs
+1.  Development Mode Selection
+    *   Consider user's preference (local/docker).
+    *   Provide mode-specific instructions.
+    *   Include fallback options.
+    *   Document trade-offs.
 
-2. Package Manager Selection
-   - Choose based on project needs
-   - Consider performance implications
-   - Ensure compatibility
-   - Document version requirements
+2.  Package Manager Selection
+    *   Choose based on project needs.
+    *   Consider performance implications.
+    *   Ensure compatibility.
+    *   Document version requirements.
 
-3. Automation Script Creation
-   - Follow KISS principle
-   - Make commands intuitive
-   - Include error handling
-   - Provide clear documentation
+3.  Automation Script Creation
+    *   Follow KISS principle.
+    *   Make commands intuitive.
+    *   Include error handling.
+    *   Provide clear documentation.
 
-4. Environment Configuration
-   - Handle dependencies properly
-   - Manage environment variables
-   - Configure development tools
-   - Set up debugging support
+4.  Environment Configuration
+    *   Handle dependencies properly.
+    *   **Manage environment variables securely and effectively.**
+    *   Configure development tools.
+    *   Set up debugging support.
 
 ## Example Output
 
@@ -169,7 +196,7 @@ volumes:
    ```bash
    # Install pnpm
    curl -fsSL https://get.pnpm.io/install.sh | sh -
-   
+
    # Install uv
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
@@ -186,6 +213,8 @@ volumes:
 - [ ] Debug configuration included
 - [ ] Error handling implemented
 - [ ] Mode-specific instructions clear
+- [ ] Troubleshooting section included
+- [ ] AI Agent Considerations included
 
 Remember to:
 - Keep instructions up to date
