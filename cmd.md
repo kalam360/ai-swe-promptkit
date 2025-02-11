@@ -31,8 +31,9 @@ Generates and validates the initial project blueprint.
 **Behavior:**
 
 1.  Creates the `blueprint` directory if it doesn't exist.
-2.  Generates initial blueprint files (`project_idea.md`, `user_stories.md`, etc.) in `blueprint/` but keep them blank. 
-3.  Reports inconsistencies or missing information.
+2.  Creates the `blueprint/idea_scratchpad.md` file if it doesn't exist.
+3.  Generates initial blueprint files (`project_idea.md`, `user_stories.md`, etc.) in `blueprint/` but keep them blank.
+4.  Reports inconsistencies or missing information.
 
 ### `ai-swe setup dev`
 
