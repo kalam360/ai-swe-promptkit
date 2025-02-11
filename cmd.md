@@ -46,6 +46,30 @@ Suggests a development environment setup.
 
 **Behavior:** Generates suggestions for `local_dev.md` (local setup) or `docker-compose.yml` (Docker setup), and a `Makefile`.
 
+### `ai-swe scaffold`
+
+Generates the project folder structure and sets up the development environment.
+
+**Files Used:**
+
+-   `blueprint/project_idea.md` (reference)
+-   `blueprint/user_stories.md` (reference)
+-   `blueprint/modules.md` (reference)
+-   `blueprint/tech_stack.md` (reference)
+-   `blueprint/impl_plan.md` (reference)
+-   `blueprint/architecture.md` (reference)
+-   `blueprint/docs/[library_name].md` (reference, if applicable)
+-   `prompts/gen_dev_setup.md`
+-   `prompts/gen_tasks.md`
+
+**Behavior:**
+
+1.  Creates the necessary project folder structure based on the project blueprint files (`project_idea.md`, `user_stories.md`, `modules.md`, `tech_stack.md`, `impl_plan.md`, and `architecture.md`).
+2.  Prompts the user to select a package manager (e.g., npm, yarn, pnpm for JavaScript; pip, uv for Python) if applicable based on `tech_stack.md`.
+3.  Invokes the `ai-swe setup dev` command to generate development environment setup suggestions (`local_dev.md` or `docker-compose.yml`, and `Makefile`).
+4.  For third-party libraries specified in `tech_stack.md`, it refers to their documentation (using `ai-swe docs [library_name]`) to guide project setup.
+5.  Creates a new task using `prompts/gen_tasks.md` to scaffold the necessary files in the project workspace. This task will be added to the task tracking system.
+
 ### `ai-swe idea`
 
 Generates project documentation.
@@ -62,7 +86,7 @@ Generates project documentation.
 
 ### `ai-swe tasks`
 
-Generates tasks, plans sprints, and creates task tracking files.
+Generates tasks, plans sprints, and creates task tracking files. Tasks should be taken from the blueprint/tasks.md  and blueprint/impl_status.md file and track it to match other blueprint files
 
 **Files Used:**
 
@@ -70,6 +94,7 @@ Generates tasks, plans sprints, and creates task tracking files.
 -   `blueprint/user_stories.md` (reference)
 -   `blueprint/modules.md` (reference)
 -   `blueprint/impl_plan.md` (reference)
+-   `blueprint/impl_status.md` (reference)
 -   `blueprint/project_idea.md` (reference)
 
 **Behavior:**
@@ -80,6 +105,8 @@ Generates tasks, plans sprints, and creates task tracking files.
     -   `current_task.md` (detailed task description)
     -   `issues.md` (high-level overview)
 2.  Creates/updates files in `blueprint/task-tracking/`.
+
+
 
 ### `ai-swe start task`
 
