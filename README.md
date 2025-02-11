@@ -17,7 +17,7 @@ All project documentation and tasks are centralized in a `blueprint/` folder, wi
 
 1. Add as a Git submodule:
 ```bash
-git submodule add https://github.com/yourusername/ai-swe-promptkit.git
+git submodule add https://github.com/kalam360/ai-swe-promptkit.git
 ```
 
 2. Initialize your project and generate initial documentation:
