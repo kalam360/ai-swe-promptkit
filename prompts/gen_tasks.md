@@ -1,251 +1,208 @@
 # Tasks Generation and Management Prompt
 
-You are a project manager tasked with breaking down the implementation plan into specific, actionable tasks and managing task workflow. Your goal is to create detailed task descriptions and manage their execution through sprints.
+Generates task descriptions and manages workflow based on `blueprint/impl_plan.md`, `blueprint/user_stories.md`, `blueprint/modules.md`, `blueprint/project_status.md`, and existing documents.
 
-## Input
-- Implementation plan document (blueprint/impl_plan.md)
-- User stories document (blueprint/user_stories.md)
-- Modules document (blueprint/modules.md)
-- Project status document (blueprint/project_status.md)
-- Current task and sprint documents (if existing)
+## Output: Markdown Documents
 
-## Output Format
-Generate markdown documents for different task aspects:
+### Implementation Tasks (`impl_tasks.md`)
 
-### Implementation Tasks (impl_tasks.md)
 ```markdown
 # Implementation Tasks
 
 ## [Module/Feature Name]
 
 ### Task: [Task Name]
-- **ID:** [Unique identifier]
-- **Type:** [Feature/Bug/Technical Debt/etc.]
-- **Priority:** [High/Medium/Low]
-- **Status:** [Not Started/In Progress/Review/Done]
-- **Estimated Time:** [Time estimate]
-- **Dependencies:** [List of dependent tasks]
-- **Assigned To:** [Developer/Team responsible]
+
+-   **ID:** [Unique identifier]
+-   **Type:** [Feature/Bug/Technical Debt/etc.]
+-   **Priority:** [High/Medium/Low]
+-   **Status:** [Not Started/In Progress/Review/Done]
+-   **Estimated Time:** [Time estimate]
+-   **Dependencies:** [List]
+-   **Assigned To:** [Developer/Team]
 
 **Description:**
-[Detailed description of what needs to be done]
+
+[Detailed description]
 
 **User Story Reference:**
-- [Link to related user story]
-- [User story acceptance criteria]
+
+-   [Link to user story]
+-   [Acceptance criteria]
 
 **Technical Requirements:**
-- [Module requirements]
-- [Architecture constraints]
-- [Implementation guidelines]
+
+-   [Module requirements]
+-   [Architecture constraints]
+-   [Guidelines]
 
 **Acceptance Criteria:**
-1. [Criterion 1]
-2. [Criterion 2]
-3. [Criterion 3]
+
+1.  [Criterion 1]
+2.  [Criterion 2]
+3.  [Criterion 3]
 
 **Testing Requirements:**
-- [ ] Unit tests for [specific functionality]
-- [ ] Integration tests for [specific scenarios]
-- [ ] Performance tests if applicable
+
+-   [ ] Unit tests for [functionality]
+-   [ ] Integration tests for [scenarios]
+-   [ ] Performance tests (if applicable)
 
 **Resources:**
-- [Related documentation]
-- [Reference implementations]
-- [External resources]
 
-**AI Agent Considerations:**
-- [How the AI agent can assist with this task (code generation, test creation, etc.)]
-- [Specific instructions for the AI agent]
+-   [Documentation]
+-   [References]
+-   [External resources]
+
+**AI Agent:**
+
+-   [Assistance with code/test generation]
+-   [Specific instructions]
 ```
 
-### Current Sprint (current_sprint.md)
+### Current Sprint (`current_sprint.md`)
+
 ```markdown
 # Current Sprint
 
 ## Sprint Goal
-[Clear statement of sprint objective]
+
+[Sprint objective]
 
 ## Sprint Duration
-- Start Date: [Date]
-- End Date: [Date]
+
+-   Start Date: [Date]
+-   End Date: [Date]
 
 ## Tasks in Progress
-1. [Task ID] - [Task Name]
-   - **Owner:** [Assigned developer]
-   - **Status:** [Current status]
-   - **Blockers:** [Any blocking issues - Detailed description]
-   - **Progress:** [% complete]
-   - **Notes:** [Important updates]
+
+1.  [Task ID] - [Task Name]
+    -   **Owner:** [Developer]
+    -   **Status:** [Current status]
+    -   **Blockers:** [Detailed description]
+    -   **Progress:** [% complete]
+    -   **Notes:** [Updates]
 
 ## Upcoming Tasks
-1. [Task ID] - [Task Name]
-   - **Priority:** [Priority level]
-   - **Dependencies:** [Any dependencies]
-   - **Estimated Start:** [Date]
+
+1.  [Task ID] - [Task Name]
+    -   **Priority:** [Level]
+    -   **Dependencies:** [Dependencies]
+    -   **Estimated Start:** [Date]
 
 ## Completed Tasks
-1. [Task ID] - [Task Name]
-   - **Completed:** [Date]
-   - **Review Status:** [Reviewed/Pending Review/Changes Requested]
-   - **Notes:** [Any important notes]
+
+1.  [Task ID] - [Task Name]
+    -   **Completed:** [Date]
+    -   **Review Status:** [Reviewed/Pending/Changes Requested]
+    -   **Notes:** [Notes]
 
 ## Sprint Metrics
-- Total Tasks: [Number]
-- Completed: [Number]
-- In Progress: [Number]
-- Blocked: [Number]
-- Remaining: [Number]
+
+-   Total Tasks: [Number]
+-   Completed: [Number]
+-   In Progress: [Number]
+-   Blocked: [Number]
+-   Remaining: [Number]
 ```
 
-### Current Task (current_task.md)
+### Current Task (`current_task.md`)
+
 ```markdown
 # Current Task
 
 ## Task Details
-- **ID:** [Task ID]
-- **Name:** [Task Name]
-- **Status:** [In Progress]
-- **Started:** [Start Date/Time]
-- **Assigned To:** [Developer/Team responsible]
+
+-   **ID:** [Task ID]
+-   **Name:** [Task Name]
+-   **Status:** [In Progress]
+-   **Started:** [Start Date/Time]
+-   **Assigned To:** [Developer/Team]
 
 ## Context
+
 ### User Story
-[Related user story with full context]
+
+[Related user story]
 
 ### Module Requirements
-[Technical requirements from module documentation]
+
+[Technical requirements]
 
 ### Implementation Details
-[Specific implementation guidelines]
+
+[Guidelines]
 
 ## Acceptance Criteria
-1. [ ] [Criterion 1]
-2. [ ] [Criterion 2]
-3. [ ] [Criterion 3]
+
+1.  [ ] [Criterion 1]
+2.  [ ] [Criterion 2]
+3.  [ ] [Criterion 3]
 
 ## Technical Notes
-- [Architecture considerations]
-- [Design patterns to use]
-- [Code organization]
+
+-   [Architecture considerations]
+-   [Design patterns]
+-   [Code organization]
 
 ## Dependencies
-- **Required First:**
-  * [Completed dependency 1]
-  * [Completed dependency 2]
-- **Blocks:**
-  * [Dependent task 1]
-  * [Dependent task 2]
+
+-   **Required First:**
+    -   [Completed dependency 1]
+    -   [Completed dependency 2]
+-   **Blocks:**
+    -   [Dependent task 1]
+    -   [Dependent task 2]
 
 ## Progress Updates
-- [Timestamp] [Update note]
-- [Timestamp] [Update note]
+
+-   [Timestamp] [Update]
+-   [Timestamp] [Update]
 
 ## Blockers
-- [ ] [Blocker 1 Description] - [Resolution Plan/Status]
-- [ ] [Blocker 2 Description] - [Resolution Plan/Status]
 
-## Review Checklist
-- [ ] Code follows SOLID principles
-- [ ] Tests are written and passing
-- [ ] Documentation is updated
-- [ ] No breaking changes
+-   [ ] [Blocker 1] - [Resolution Plan/Status]
+-   [ ] [Blocker 2] - [Resolution Plan/Status]
 ```
 
-### Issues (issues.md)
+### Issues (`issues.md`)
+
 ```markdown
 # Issues Tracking
 
 ## Critical Issues
 
 ### Issue: [Issue Name]
-- **ID:** [Issue identifier]
-- **Type:** [Bug/Performance/Security/etc.]
-- **Priority:** [Critical/High/Medium/Low]
-- **Status:** [Open/In Progress/Under Review]
-- **Reported:** [Date]
-- **Affects:** [Components/features affected]
+
+-   **ID:** [Identifier]
+-   **Type:** [Bug/Performance/Security/etc.]
+-   **Priority:** [Critical/High/Medium/Low]
+-   **Status:** [Open/In Progress/Under Review]
+-   **Reported:** [Date]
+-   **Affects:** [Components/features]
 
 **Description:**
-[Detailed description of the issue]
+
+[Detailed description]
 
 **Impact:**
-- [Business impact]
-- [Technical impact]
-- [User impact]
+
+-   [Business impact]
+-   [Technical impact]
+-   [User impact]
 
 **Resolution Plan:**
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+
+1.  [Step 1]
+2.  [Step 2]
+3.  [Step 3]
 
 **Related Tasks:**
-- [Task ID] - [Task Name]
+
+-   [Task ID] - [Task Name]
 ```
-
-## Task Management Guidelines
-
-1.  Task Creation
-    *   Clear, specific descriptions.
-    *   Full context inclusion (user story, technical requirements).
-    *   Well-defined acceptance criteria.
-    *   Explicit dependencies.
-    *   **Assigned To field for accountability.**
-
-2.  Sprint Planning
-    *   Balanced workload.
-    *   Clear priorities.
-    *   Manageable scope.
-    *   Team capacity consideration.
-    *   **Blocker resolution planning.**
-
-3.  Current Task Management
-    *   Complete context provision.
-    *   Progress tracking (% complete).
-    *   **Detailed blocker identification and resolution tracking.**
-    *   Regular updates.
-
-4.  Issue Handling
-    *   Clear impact assessment.
-    *   Priority assignment.
-    *   Resolution planning.
-    *   Task linkage.
-
-## Task Workflow
-
-1.  Sprint Planning:
-    *   Review available tasks.
-    *   Consider team capacity.
-    *   Set sprint goals.
-    *   Prioritize critical issues and blockers.
-
-2.  Task Selection:
-    *   Check current task completion.
-    *   Review sprint progress.
-    *   Consider dependencies.
-    *   Handle critical issues and blockers.
-
-3.  Task Updates:
-    *   Track progress (% complete).
-    *   Update status.
-    *   Document blockers with details and resolution plans.
-    *   Plan next tasks.
-
-## Validation Checklist
-
-- [ ] Tasks are specific and actionable
-- [ ] Full context is provided
-- [ ] Dependencies are identified
-- [ ] Acceptance criteria are clear
-- [ ] Technical requirements included
-- [ ] Progress tracking enabled
-- [ ] Sprint metrics maintained
-- [ ] AI Agent Considerations included
-- [ ] Assigned To field is populated
-
-Remember to:
-- Keep tasks focused and manageable
-- Update status regularly
-- Track dependencies
-- Document progress
-- Handle transitions smoothly
+## Guidelines
+- Tasks should have clear descriptions, context, acceptance criteria, dependencies, and assignments.
+- Sprint planning should consider workload, priorities, scope, capacity, and blockers.
+- Current task management should include context, progress tracking, blocker identification, and updates.
+- Issue handling should include impact assessment, prioritization, resolution planning, and task linkage.

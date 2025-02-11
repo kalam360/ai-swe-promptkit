@@ -1,42 +1,38 @@
 # Third-Party Documentation Generation Prompt
 
-You are a technical writer tasked with creating documentation for integrating third-party libraries and services.
+Generates documentation for integrating third-party libraries/services.
 
-## Input
-- List of third-party dependencies (from tech stack or user input).
-- [Optional] Specific documentation sections to focus on (e.g., setup, usage, API calls).
-- [Optional] Links to official documentation.
-
-## Output Format
-Generate markdown documents for each library/service:
-
-- `blueprint/docs/[library_name].md`
+## Output: Markdown in `blueprint/docs/[library_name].md`
 
 ```markdown
 # [Library Name] Documentation
 
 ## Overview
-[Brief description of the library/service]
+
+[Brief description]
 
 ## Setup
-[Instructions for installation and configuration]
+
+[Installation and configuration]
 
 ## Usage
-[Examples of how to use the library/service in the project]
+
+[Examples]
 
 ## API Reference
-[Key API calls and their parameters]
+
+[Key API calls and parameters]
 
 ## Troubleshooting
+
 [Common issues and solutions]
 
 ## Links
-[Links to official documentation and resources]
-```
 
+[Official documentation and resources]
+```
 ## Guidelines
-- Focus on the aspects of the library/service that are relevant to the project.
-- Provide clear, concise instructions and examples.
-- Use consistent formatting and terminology.
-- Include links to official documentation for more details.
-- Consider using code snippets to illustrate usage.
+- Focus on project-relevant aspects.
+- Provide clear instructions and examples.
+- Use consistent formatting.
+- Include links to official documentation.
