@@ -28,9 +28,10 @@ All commands and templates enforce:
 
 ### ai-swe init
 
-Primary function: Project initialization and validation
+When you use the `ai-swe init` command, the AI, acting as a project manager and technical lead, will generate and validate the initial project blueprint.
+
 Prompt Templates Used:
-- All `gen_*.md` templates for structure validation:
+- All `gen_*.md` templates. Used to generate the initial project blueprint:
   * prompts/gen_project_idea.md
   * prompts/gen_user_stories.md
   * prompts/gen_modules.md
@@ -43,30 +44,43 @@ Prompt Templates Used:
 **AI Agent Behavior:**
 
 - **Role:** Project manager and technical lead.
-- **Plan:** Validate the existence and basic structure of all blueprint documents. Check for consistency between documents (e.g., user stories referenced in the implementation plan). Identify any missing or incomplete sections.
-- **Execution:** Report any inconsistencies or missing information. Suggest improvements to the blueprint structure. Do not generate new content, only validate existing.
+- **Plan:**
+    1. Generate the project blueprint using the `gen_*.md` templates.
+    2. Validate the existence and basic structure of all blueprint documents.
+    3. Check for consistency between documents (e.g., user stories referenced in the implementation plan).
+    4. Identify any missing or incomplete sections.
+- **Execution:**
+    1. Create the `blueprint` directory if it doesn't exist.
+    2. Generate the initial blueprint files (`project_idea.md`, `user_stories.md`, etc.) within the `blueprint` directory, using the corresponding `gen_*.md` prompts.
+    3. Report any inconsistencies or missing information in the generated blueprint.
+    4. Suggest improvements to the blueprint structure.
 
 ### ai-swe setup dev
 
-Primary function: Development environment setup suggestion.
-Prompt Templates Used:
-- prompts/gen_dev_setup.md (primary)
+When you use the `ai-swe setup dev` command, the AI, acting as a DevOps engineer, will suggest a development environment setup.
+
+Blueprint Files Used:
+- blueprint/dev_setup.md (primary)
   * Local/Docker setup
   * Package manager configuration
   * Automation scripts
-- prompts/gen_tech_stack.md (reference)
+- blueprint/tech_stack.md (reference)
   * Technology requirements
   * Tool versions
 
 **AI Agent Behavior:**
 
 - **Role:** DevOps engineer.
-- **Plan:** Understand the required technologies and versions from the tech stack. Understand the user's preferred development mode (local/docker). Use `prompts/gen_dev_setup.md` to generate a setup guide and script suggestions.
-- **Execution:** Generate suggestions for `local_dev.md` (for local setup) or `docker-compose.yml` (for Docker setup), and a `Makefile` with common development commands.
+- **Plan:**
+    1. Understand the required technologies and versions from `blueprint/tech_stack.md`.
+    2. Understand the user's preferred development mode (local/docker).
+    3. Use the information in `blueprint/dev_setup.md` to generate a setup guide and script suggestions.
+- **Execution:** Generate suggestions for `local_dev.md` (for local setup) or `docker-compose.yml` (for Docker setup), and a `Makefile` with common development commands. This will help you set up your development environment quickly.
 
 ### ai-swe idea
 
-Primary function: Project documentation generation. Use subcommands for specific sections.
+The `ai-swe idea` command, along with its subcommands, is used to generate project documentation. The AI acts as a software architect and product owner.
+
 Prompt Templates Used:
 - See subcommands below.
 
@@ -101,57 +115,76 @@ Prompt Templates Used:
 
 ### ai-swe tasks
 
-Primary function: Task generation and management
-Prompt Templates Used:
-- prompts/gen_tasks.md (primary)
+When you use the `ai-swe tasks` command, the AI, acting as a project manager, will generate tasks, plan sprints, and create task tracking files.
+
+Blueprint Files Used:
+- blueprint/tasks.md (primary)
   * Task breakdown
   * Sprint planning
-- prompts/gen_user_stories.md (reference)
+- blueprint/user_stories.md (reference)
   * Feature requirements
-- prompts/gen_modules.md (reference)
+- blueprint/modules.md (reference)
   * Technical requirements
-- prompts/gen_impl_plan.md (reference)
+- blueprint/impl_plan.md (reference)
   * Implementation details
+- blueprint/project_idea.md (reference)
+  * Project details
 
 **AI Agent Behavior:**
 
 - **Role:** Project manager.
-- **Plan:** Understand the implementation plan, user stories, and module analysis. Use `prompts/gen_tasks.md` to generate task breakdowns, sprint plans, and current task/sprint documents.
-- **Execution:** Generate content for `impl_tasks.md`, `current_sprint.md`, and `current_task.md`. Manage task status and progress.
-
+- **Plan:**
+    1. Read `blueprint/tasks.md` to get the existing task information.
+    2. If needed (for updates or new sprint planning), also read `blueprint/user_stories.md`, `blueprint/impl_plan.md`, and `blueprint/project_idea.md` to understand the project context.
+    3. Generate/Update:
+        - Task breakdowns (issues).
+        - A current sprint plan.
+        - Current task implementation tasks.
+    4. Update files in the `blueprint/task-tracking` directory.
+- **Execution:**
+    1. Generate content for task breakdowns, sprint plan, and current task.
+    2. Create and populate files in `blueprint/task-tracking/` (e.g., `blueprint/task-tracking/tasks.md`, `blueprint/task-tracking/current_sprint.md`, `blueprint/task-tracking/current_task.md`).
+    3.  Ensure that the generated tasks are consistent with the user stories, implementation plan, and overall project goals.
 ### ai-swe start task
 
-Primary function: Task execution workflow initiation.
-Prompt Templates Used:
-- prompts/gen_tasks.md (primary)
+When you use the `ai-swe start task` command, the AI, acting as a development team lead, will initiate the workflow for a specific task.
+
+Blueprint Files Used:
+- blueprint/tasks.md (primary)
   * Task validation
   * Sprint management
-- prompts/gen_impl_plan.md (reference)
+- blueprint/impl_plan.md (reference)
   * Implementation guidelines
-- prompts/gen_user_stories.md (reference)
+- blueprint/user_stories.md (reference)
   * Feature context
-- prompts/gen_modules.md (reference)
+- blueprint/modules.md (reference)
   * Technical context
 
 **AI Agent Behavior:**
 
 - **Role:** Development team lead.
-- **Plan:** Select a task. Gather all relevant context: user story, module requirements, implementation details.
+- **Plan:**
+    1. Select a task from `blueprint/tasks.md` or `blueprint/task-tracking/current_sprint.md`.
+    2. Gather relevant context from: `blueprint/user_stories.md`, `blueprint/modules.md`, and `blueprint/impl_plan.md`.
+- **Execution:**
+    1. Update the status of the task to "In Progress" in `blueprint/task-tracking/tasks.md` and/or `blueprint/task-tracking/current_sprint.md`.
+    2. Create/Update content for `blueprint/task-tracking/current_task.md` with all relevant information.
 - **Execution:** Indicate that the task is "In Progress". Create content for a `current_task.md` file with all relevant information.
 
 ### ai-swe status
 
-Primary function: Project status validation
-Prompt Templates Used:
-- All `gen_*.md` templates for validation:
-  * prompts/gen_project_idea.md (project alignment)
-  * prompts/gen_user_stories.md (feature progress)
-  * prompts/gen_modules.md (technical progress)
-  * prompts/gen_tech_stack.md (technology validation)
-  * prompts/gen_impl_plan.md (implementation progress)
-  * prompts/gen_tasks.md (task status)
-  * prompts/gen_dev_setup.md (environment status)
-  * prompts/gen_architecture.md (architecture validation)
+When you use the `ai-swe status` command, the AI, acting as a project auditor, will validate the project's status.
+
+Blueprint Files Used:
+- All blueprint files for validation:
+  * blueprint/project_idea.md (project alignment)
+  * blueprint/user_stories.md (feature progress)
+  * blueprint/modules.md (technical progress)
+  * blueprint/tech_stack.md (technology validation)
+  * blueprint/impl_plan.md (implementation progress)
+  * blueprint/tasks.md (task status)
+  * blueprint/dev_setup.md (environment status)
+  * blueprint/architecture.md (architecture validation)
 
 **AI Agent Behavior:**
 
@@ -161,16 +194,17 @@ Prompt Templates Used:
 
 ### ai-swe update [section]
 
-Primary function: Updates a specific section of the blueprint.
+When you use the `ai-swe update [section]` command, the AI, acting as a technical writer and project manager, will update the specified section of the blueprint.
+
 Prompt Templates Used:
 - Depends on the `[section]` argument. For example:
-  * `ai-swe update idea`: Uses `prompts/gen_project_idea.md`
-  * `ai-swe update stories`: Uses `prompts/gen_user_stories.md`
-  * `ai-swe update modules`: Uses `prompts/gen_modules.md`
-  * `ai-swe update tech`: Uses `prompts/gen_tech_stack.md`
-  * `ai-swe update plan`: Uses `prompts/gen_impl_plan.md`
-  * `ai-swe update tasks`: Uses `prompts/gen_tasks.md`
-  * `ai-swe update architecture`: Uses `prompts/gen_architecture.md`
+  * `ai-swe update idea`: Uses `prompts/gen_project_idea.md` to update `blueprint/project_idea.md`
+  * `ai-swe update stories`: Uses `prompts/gen_user_stories.md` to update `blueprint/user_stories.md`
+  * `ai-swe update modules`: Uses `prompts/gen_modules.md` to update `blueprint/modules.md`
+  * `ai-swe update tech`: Uses `prompts/gen_tech_stack.md` to update `blueprint/tech_stack.md`
+  * `ai-swe update plan`: Uses `prompts/gen_impl_plan.md` to update `blueprint/impl_plan.md`
+  * `ai-swe update tasks`: Uses `prompts/gen_tasks.md` to update `blueprint/tasks.md`
+  * `ai-swe update architecture`: Uses `prompts/gen_architecture.md` to update `blueprint/architecture.md`
 
 **AI Agent Behavior:**
 
@@ -180,7 +214,8 @@ Prompt Templates Used:
 
 ### ai-swe docs [library_name]
 
-Primary function: Generates documentation for a third-party library.
+When you use the `ai-swe docs [library_name]` command, the AI, acting as a technical writer, will generate documentation for a specified third-party library.
+
 Prompt Templates Used:
 - prompts/gen_thirdparty.md
 
@@ -192,14 +227,20 @@ Prompt Templates Used:
 
 ### ai-swe tests [module/feature]
 
-Primary function: Generates tests for module/feature.
-Prompt Templates Used:
-- prompts/gen_tasks.md (reference)
+When you use the `ai-swe tests [module/feature]` command, the AI, acting as a QA engineer, will generate tests for the specified module or feature.
+
+Blueprint Files Used:
+- blueprint/tasks.md (reference)
+- blueprint/user_stories.md (reference)
+- blueprint/modules.md (reference)
 
 **AI Agent Behavior:**
 
 - **Role:** QA engineer.
-- **Plan:** Understand the relevant module/feature or task. Identify the acceptance criteria and technical requirements. Generate unit, integration, and/or end-to-end tests based on the information.
+- **Plan:**
+    1. Understand the relevant module/feature or task from `blueprint/tasks.md`, `blueprint/user_stories.md`, and `blueprint/modules.md`.
+    2. Identify the acceptance criteria and technical requirements from the blueprint.
+    3. Generate unit, integration, and/or end-to-end tests based on the information.
 - **Execution:** Generate test files in the appropriate format and location (determined by the project's technology stack).
 
 ## Template Relationships
