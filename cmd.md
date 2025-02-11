@@ -136,15 +136,16 @@ Blueprint Files Used:
 - **Plan:**
     1.  Read `blueprint/user_stories.md`, `blueprint/impl_plan.md`, and `blueprint/project_idea.md` to understand the project context.
     2.  Use the `prompts/gen_tasks.md` prompt to generate:
-        -   Implementation Tasks (`impl_tasks.md`)
-        -   Current Sprint (`current_sprint.md`)
-        -   Current Task (`current_task.md`)
-        -   Issues (`issues.md`)
+        -   Implementation Tasks (`impl_tasks.md`) - High-level overview matching `blueprint/tasks.md`
+        -   Current Sprint (`current_sprint.md`) - High-level overview matching `blueprint/tasks.md`
+        -   Current Task (`current_task.md`) - **This file contains the self-sufficient, detailed task description.**
+        -   Issues (`issues.md`) - High-level overview matching `blueprint/tasks.md`
     3.  Update files in the `task-tracking` directory.
 - **Execution:**
-    1.  Generate content for task breakdowns, sprint plan, and current task using the `prompts/gen_tasks.md` prompt.
+    1.  Generate content for task breakdowns, sprint plan, and current task using the `prompts/gen_tasks.md` prompt.  Only `current_task.md` will contain detailed, self-sufficient task information. The other files (`impl_tasks.md`, `current_sprint.md`, and `issues.md`) will contain high-level overviews that align with the information in `blueprint/tasks.md`.
     2.  Create and populate files in `blueprint/task-tracking/` (e.g., `blueprint/task-tracking/impl_tasks.md`, `blueprint/task-tracking/current_sprint.md`, `blueprint/task-tracking/current_task.md`, `blueprint/task-tracking/issues.md`).
     3.  Ensure that the generated tasks are consistent with the user stories, implementation plan, and overall project goals.
+
 ### ai-swe start task
 
 When you use the `ai-swe start task` command, the AI, acting as a development team lead, will initiate the workflow for a specific task.
