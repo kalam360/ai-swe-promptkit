@@ -86,7 +86,7 @@ Generates project documentation.
 
 ### `ai-swe tasks`
 
-Generates tasks, plans sprints, and creates task tracking files. Tasks should be taken from the blueprint/tasks.md  and blueprint/impl_status.md file and track it to match other blueprint files
+Generates tasks, plans sprints, and creates task tracking files. Tasks should be taken from the blueprint/tasks.md  and blueprint/impl_status.md file and track it to match other blueprint files. 
 
 **Files Used:**
 
@@ -105,8 +105,7 @@ Generates tasks, plans sprints, and creates task tracking files. Tasks should be
     -   `current_task.md` (detailed task description)
     -   `issues.md` (high-level overview)
 2.  Creates/updates files in `blueprint/task-tracking/`.
-
-
+3.  Use tests in TDD in the current task to use that to create necessary tests files for this current task to be completed.
 
 ### `ai-swe start task`
 
@@ -122,9 +121,11 @@ Initiates workflow for the task specified in `blueprint/task-tracking/current_ta
 
 **Behavior:**
 
-1.  Updates task status to "In Progress" in `blueprint/task-tracking/`. The command primarily uses data from the `blueprint/task-tracking/` directory.
-2.  Creates/updates `blueprint/task-tracking/current_task.md` mostly just for reference. only create if the tasks status is completed and create new task
+1.  Updates task status to "In Progress" in `blueprint/task-tracking/`. The command primarily uses data from the `blueprint/task-tracking/` directory. use the workspace codes to get idea of the source codes to be used for the task.
+2.  Creates/updates `blueprint/task-tracking/current_task.md` mostly just for reference. only create if the tasks status is completed and create new task. having tests in the task will help to validate the task. write the tests in task to agent to complete. 
 3.  change the mode to coding agent to start working on the task
+4. when the task is completed it will start building the tests and run the tests to make sure the task is completed correctly. and if tests runs fine. 
+5. after the tests pass it will run the project locally so check everything is working fine. using the `blueprint/dev_setup.md` for running the project locally. also update the docker compose. 
 
 
 ### `ai-swe status`
