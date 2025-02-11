@@ -20,22 +20,18 @@ All project documentation and tasks are centralized in a `blueprint/` folder, wi
 git submodule add https://github.com/yourusername/ai-swe-promptkit.git
 ```
 
-2. Initialize your project:
+2. Initialize your project and generate initial documentation:
 ```
 ai-swe init
+ai-swe idea all
 ```
 
-3. Document your idea:
-```
-ai-swe idea
-```
-
-4. Generate tasks:
+3. Generate tasks:
 ```
 ai-swe tasks
 ```
 
-5. Start working:
+4. Start working:
 ```
 ai-swe start task
 ```
@@ -78,14 +74,17 @@ your-project/
 
 ## Commands
 
-See [cmd.md](cmd.md) for detailed documentation. Core commands:
+See [cmd.md](cmd.md) for detailed documentation. Core commands include:
 
 ```
 ai-swe init        # Setup/verify project structure
-ai-swe idea        # Document and generate all blueprints
+ai-swe idea all    # Generate all blueprint documents
+ai-swe idea [sub]  # Generate specific blueprint section (project, stories, modules, tech, plan, architecture)
 ai-swe tasks       # Generate comprehensive task breakdown
 ai-swe start task  # Begin working on next task
 ai-swe status      # Check project progress
+ai-swe update [section] # Update a specific section of the blueprint
+ai-swe docs [library_name] # Generate documentation for a third party library
 ```
 
 ## How It Works
