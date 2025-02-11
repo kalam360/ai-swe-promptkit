@@ -110,7 +110,7 @@ Generates tasks, plans sprints, and creates task tracking files. Tasks should be
 
 ### `ai-swe start task`
 
-Initiates workflow for the task specified in `blueprint/task-tracking/current_task.md`.
+Initiates workflow for the task specified in `blueprint/task-tracking/current_task.md`. if user types adhoc it will create a adhoc_task.md in the task-tracking directory and start working on it. also updates the current task to in progress to be worked on after the adhoc task is completed.
 
 **Files Used:**
 
