@@ -153,7 +153,7 @@ Updates a specified section of the blueprint.
 -   `ai-swe update modules`: `prompts/gen_modules.md` to update `blueprint/modules.md`
 -   `ai-swe update tech`: `prompts/gen_tech_stack.md` to update `blueprint/tech_stack.md`
 -   `ai-swe update plan`: `prompts/gen_impl_plan.md` to update `blueprint/impl_plan.md`
--   `ai-swe update tasks`: `prompts/gen_tasks.md` to update `blueprint/tasks.md`
+-   `ai-swe update tasks`: `prompts/gen_tasks.md` to update `blueprint/tasks.md` and run `ai-swe tasks` to update `blueprint/task-tracking/`
 -   `ai-swe update architecture`: `prompts/gen_architecture.md` to update `blueprint/architecture.md`
 -   `ai-swe update dev setup`: `prompts/gen_dev_setup.md` to update `blueprint/dev_setup.md` and other things that ai-swe setup dev instruction does in the cmd.md file
 
