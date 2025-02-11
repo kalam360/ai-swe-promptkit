@@ -115,35 +115,35 @@ Prompt Templates Used:
 
 ### ai-swe tasks
 
-When you use the `ai-swe tasks` command, the AI, acting as a project manager, will generate tasks, plan sprints, and create task tracking files.
+When you use the `ai-swe tasks` command, the AI, acting as a project manager, will generate tasks, plan sprints, and create task tracking files based on the `prompts/gen_tasks.md` prompt.
+
+Prompt Templates Used:
+- `prompts/gen_tasks.md`
 
 Blueprint Files Used:
-- blueprint/tasks.md (primary)
-  * Task breakdown
-  * Sprint planning
-- blueprint/user_stories.md (reference)
+- `blueprint/user_stories.md` (reference)
   * Feature requirements
-- blueprint/modules.md (reference)
+- `blueprint/modules.md` (reference)
   * Technical requirements
-- blueprint/impl_plan.md (reference)
+- `blueprint/impl_plan.md` (reference)
   * Implementation details
-- blueprint/project_idea.md (reference)
-  * Project details
+- `blueprint/project_idea.md` (reference)
+ * Project details
 
 **AI Agent Behavior:**
 
 - **Role:** Project manager.
 - **Plan:**
-    1. Read `blueprint/tasks.md` to get the existing task information.
-    2. If needed (for updates or new sprint planning), also read `blueprint/user_stories.md`, `blueprint/impl_plan.md`, and `blueprint/project_idea.md` to understand the project context.
-    3. Generate/Update:
-        - Task breakdowns (issues).
-        - A current sprint plan.
-        - Current task implementation tasks.
-    4. Update files in the `blueprint/task-tracking` directory.
+    1.  Read `blueprint/user_stories.md`, `blueprint/impl_plan.md`, and `blueprint/project_idea.md` to understand the project context.
+    2.  Use the `prompts/gen_tasks.md` prompt to generate:
+        -   Implementation Tasks (`impl_tasks.md`)
+        -   Current Sprint (`current_sprint.md`)
+        -   Current Task (`current_task.md`)
+        -   Issues (`issues.md`)
+    3.  Update files in the `task-tracking` directory.
 - **Execution:**
-    1. Generate content for task breakdowns, sprint plan, and current task.
-    2. Create and populate files in `blueprint/task-tracking/` (e.g., `blueprint/task-tracking/tasks.md`, `blueprint/task-tracking/current_sprint.md`, `blueprint/task-tracking/current_task.md`).
+    1.  Generate content for task breakdowns, sprint plan, and current task using the `prompts/gen_tasks.md` prompt.
+    2.  Create and populate files in `blueprint/task-tracking/` (e.g., `blueprint/task-tracking/impl_tasks.md`, `blueprint/task-tracking/current_sprint.md`, `blueprint/task-tracking/current_task.md`, `blueprint/task-tracking/issues.md`).
     3.  Ensure that the generated tasks are consistent with the user stories, implementation plan, and overall project goals.
 ### ai-swe start task
 
