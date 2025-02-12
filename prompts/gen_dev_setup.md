@@ -169,3 +169,4 @@ volumes:
 - Choose package managers based on needs, performance, compatibility, and versions.
 - Create automation scripts following KISS, with intuitive commands, error handling, and documentation.
 - Configure the environment, handling dependencies, environment variables, tools, and debugging.
+- Ask user for cli to manage the project like should setup dev use, like `uv venv`, `uv sync` , `uv run ` etch for managing python project or pnpm for managing frontend node projects. 

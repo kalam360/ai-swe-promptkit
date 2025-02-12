@@ -99,7 +99,7 @@ Generates tasks, plans sprints, and creates task tracking files. Tasks should be
 
 **Behavior:**
 
-1.  Generates:
+1.  Generates: checking the project source codes which are necessary 
     -   `impl_tasks.md` (high-level overview)
     -   `current_sprint.md` (high-level overview)
     -   `current_task.md` (detailed task description)
